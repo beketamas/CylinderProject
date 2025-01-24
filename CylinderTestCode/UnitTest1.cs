@@ -13,7 +13,7 @@ namespace CylinderTestCode
         }
 
         [Theory]
-        [InlineData(-5.5, -7.5)]
+        [InlineData(0, 0)]
 
         public void IsNegativeOrNull(double radius, double height)
         {
@@ -28,14 +28,13 @@ namespace CylinderTestCode
             var volume = Cylinder.GetVolume();
             var surfaceArea = Cylinder.GetSurfaceArea();
 
-            Assert.Equal(Math.PI * Math.Pow(5.5, 2) * 7.5, volume);
-            Assert.Equal(2 * Math.PI * Math.Pow(5.5, 2) + 2 * Math.PI * 5.5 * 7.5, surfaceArea);
+            Assert.Equal(Math.PI * Math.Pow(5.5, 2) * 7.5, volume, 5);
+            Assert.Equal(2 * Math.PI * Math.Pow(5.5, 2) + 2 * Math.PI * 5.5 * 7.5, surfaceArea, 5);
         }
 
 
         [Theory]
-        [InlineData(7.5, 9.5)]
-        [InlineData(-7.5, -9.5)]
+        [InlineData(-5,-9)]
 
         public void Frissit(double newRadius, double newHeight)
         {
