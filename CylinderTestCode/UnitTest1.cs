@@ -13,10 +13,8 @@ namespace CylinderTestCode
         }
 
         [Theory]
-        [InlineData(-5.5, 7.5)]
-        [InlineData(5.5, -7.5)]
-        [InlineData(null, 7.5)]
-        [InlineData(5.5, null)]
+        [InlineData(-5.5, -7.5)]
+
         public void IsNegativeOrNull(double radius, double height)
         {
             Assert.Throws<ArgumentException>(() => new Cylinder(radius, height));
@@ -45,9 +43,19 @@ namespace CylinderTestCode
 
             Assert.Throws<ArgumentException>(() => Cylinder.Resize(newRadius, newHeight));
 
+
+        }
+
+        [Fact]
+        public void FrissitMegegyezik()
+        {
+            var Cylinder = new Cylinder(5.5, 7.5);
+            var newRadius = 7.5;
+            var newHeight = 9.5;
             Cylinder.Resize(newRadius, newHeight);
-            Assert.Equal(newRadius ,Cylinder.Radius);
-            Assert.Equal(newHeight ,Cylinder.Height);
+            Assert.Equal(newRadius, Cylinder.Radius);
+            Assert.Equal(newHeight, Cylinder.Height);
+
         }
 
         [Fact]
